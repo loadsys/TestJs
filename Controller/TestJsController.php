@@ -7,6 +7,11 @@ class TestJsController extends TestJsAppController {
 	public $autoRender = false;
 
 	public function index() {
+		$defaults = array('assert' => false, 'expect' => true, 'should' => false);
+		$opts = Configure::read('TestJs');
+		if (!is_array($opts)) {
+			Configure::write('TestJs', $defaults);
+		}
 		$this->render('Pages/test');
 	}
 }
