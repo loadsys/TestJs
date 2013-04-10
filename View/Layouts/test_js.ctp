@@ -22,6 +22,9 @@
 	<?php endif; ?>
 	<script>mocha.setup('bdd')</script>
 	<?php echo $this->fetch('test_js'); ?>
-	<script>mocha.run();</script>
+	<script>
+		if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+		else { mocha.run(); }
+	</script>
 </body>
 </html>
