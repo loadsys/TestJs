@@ -24,7 +24,13 @@ To view the test page to `/testjs` in the browser (use `/app_name/testjs` if you
 
 To configure the plugin, write options with `Configure::write()`.
 
-The valid options are:
+The valid framework options are:
+
+- qunit - Use the qunit testing framework
+- jasmine - Use the jasmine spec framework
+- mocha - Use the mocha test/spec framework (also set chai for assertions)
+
+The valid chai options are:
 
 - assert - Use the assert assertion style (boolean)
 - expect - Use the expect assertion style (boolean)
@@ -32,8 +38,9 @@ The valid options are:
 
 ``` php
 Configure::write('TestJs', array(
-  'assert' => false,
-  'expect' => true,
-  'should' => false
+  'qunit' => false,
+  'jasmine' => false,
+  'mocha' => true,
+  'chai' => 'expect'
 ));
 ```
