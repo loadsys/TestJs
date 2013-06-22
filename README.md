@@ -32,9 +32,9 @@ The valid framework options are:
 
 The valid chai options are:
 
-- assert - Use the assert assertion style (boolean)
-- expect - Use the expect assertion style (boolean)
-- should - Use the should assertion style (boolean)
+- assert - Use the assert assertion style
+- expect - Use the expect assertion style
+- should - Use the should assertion style
 
 ``` php
 Configure::write('TestJs', array(
