@@ -1,6 +1,7 @@
 <?php
 
 App::uses('TestJsAppController', 'TestJs.Controller');
+App::uses('TestJsRunner', 'TestJs.Lib');
 
 class TestJsController extends TestJsAppController {
 	public $layout = 'TestJs.test_js';
@@ -11,10 +12,16 @@ class TestJsController extends TestJsAppController {
 	}
 
 	public function beforeRender() {
-		$defaults = array('assert' => false, 'expect' => true, 'should' => false);
+		$defaults = array(
+			'mocha' => true,
+			'qunit' => false,
+			'jasmine' => false,
+			'chai' => 'expect' 
+		);
 		$opts = Configure::read('TestJs');
 		if (!is_array($opts)) {
-			Configure::write('TestJs', $defaults);
+			$opts = $defaults;
 		}
+		$this->set('testJs', new TestJsRunner($opts));
 	}
 }
