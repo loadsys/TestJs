@@ -38,9 +38,7 @@ The valid chai options are:
 
 ``` php
 Configure::write('TestJs', array(
-  'qunit' => false,
-  'jasmine' => false,
-  'mocha' => true,
+  'framework' => 'mocha',
   'chai' => 'expect'
 ));
 ```
