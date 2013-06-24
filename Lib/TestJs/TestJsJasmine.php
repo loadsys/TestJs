@@ -1,12 +1,19 @@
 <?php
 
-class TestJsJasmine {
+App::uses('TestJsFramework', 'TestJs.Lib/TestJs');
+
+class TestJsJasmine extends TestJsFramework {
 	public function jsFiles() {
-		return array('sinon.js', 'jasmine.js', 'jasmine-sinon.js', 'jasmine-html.js');
+		return array(
+			'/test_js/js/sinon.js',
+			'/test_js/js/jasmine.js',
+			'/test_js/js/jasmine-sinon.js',
+			'/test_js/js/jasmine-html.js'
+		);
 	}
 
 	public function cssFiles() {
-		return array('jasmine.css');
+		return array('/test_js/css/jasmine.css');
 	}
 
 	public function startup() {

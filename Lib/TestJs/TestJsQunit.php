@@ -1,12 +1,18 @@
 <?php
 
-class TestJsQunit {
+App::uses('TestJsFramework', 'TestJs.Lib/TestJs');
+
+class TestJsQunit extends TestJsFramework {
 	public function jsFiles() {
-		return array('sinon.js', 'qunit.js', 'qunit-sinon.js');
+		return array(
+			'/test_js/js/sinon.js',
+			'/test_js/js/qunit.js',
+			'/test_js/js/qunit-sinon.js'
+		);
 	}
 
 	public function cssFiles() {
-		return array('qunit.css');
+		return array('/test_js/css/qunit.css');
 	}
 
 	public function markup() {

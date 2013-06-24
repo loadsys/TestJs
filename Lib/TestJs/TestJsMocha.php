@@ -4,11 +4,16 @@ App::uses('TestJsFramework', 'TestJs.Lib/TestJs');
 
 class TestJsMocha extends TestJsFramework {
 	public function jsFiles() {
-		return array('chai.js', 'sinon.js', 'sinon-chai.js', 'mocha.js');
+		return array(
+			'/test_js/js/chai.js',
+			'/test_js/js/sinon.js',
+			'/test_js/js/sinon-chai.js',
+			'/test_js/js/mocha.js'
+		);
 	}
 
 	public function cssFiles() {
-		return array('mocha.css');
+		return array('/test_js/css/mocha.css');
 	}
 
 	public function markup() {
