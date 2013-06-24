@@ -1,6 +1,10 @@
 <?php
 
 App::uses('TestJsFactory', 'TestJs.Lib/TestJs');
+App::uses('TestJsFramework', 'TestJs.Lib/TestJs');
+
+class TestJsTesting extends TestJsFramework {
+}
 
 class TestJsFactoryTest extends CakeTestCase {
 	public function testFactoryWithValidFramework() {
@@ -25,11 +29,18 @@ class TestJsFactoryTest extends CakeTestCase {
 		$this->assertTrue(false, 'Exception was not caught');
 	}
 
-	public function testFactoryWithInvalidFrameworkOption() {
+	public function testRunnerReturnsARunnerWithFrameworkInstance() {
+		$factory = new TestJsFactory(array('framework' => 'testing'));
+		$runner = $factory->runner();
+		$this->assertInstanceOf('TestJsTesting', $runner->framework);
+	}
+
+	public function testRunnerThrowsExceptionWhenFrameworkClassIsNotFound() {
 		try {
 			$factory = new TestJsFactory(array('framework' => 'invalid'));
-		} catch (InvalidArgumentException $e) {
-			$this->assertRegExp("/Missing or invalid 'framework'/", $e->getMessage());
+			$runner = $factory->runner();
+		} catch (LogicException $e) {
+			$this->assertRegExp('/TestJsInvalid/', $e->getMessage());
 			return;
 		}
 		$this->assertTrue(false, 'Exception was not caught');

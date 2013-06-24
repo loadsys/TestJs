@@ -1,6 +1,8 @@
 <?php
 
 class TestJsRunner {
+	public $framework;
+
 	public function __construct($framework = null) {
 		if (!$framework) {
 			throw new InvalidArgumentException('Missing framework class');
