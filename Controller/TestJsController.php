@@ -1,7 +1,7 @@
 <?php
 
 App::uses('TestJsAppController', 'TestJs.Controller');
-App::uses('TestJsRunner', 'TestJs.Lib');
+App::uses('TestJsFactory', 'TestJs.Lib/TestJs');
 
 class TestJsController extends TestJsAppController {
 	public $layout = 'TestJs.test_js';
@@ -13,15 +13,14 @@ class TestJsController extends TestJsAppController {
 
 	public function beforeRender() {
 		$defaults = array(
-			'mocha' => true,
-			'qunit' => false,
-			'jasmine' => false,
+			'framework' => 'mocha',
 			'chai' => 'expect' 
 		);
 		$opts = Configure::read('TestJs');
 		if (!is_array($opts)) {
 			$opts = $defaults;
 		}
-		$this->set('testJs', new TestJsRunner($opts));
+		$factory = new TestJsFactory($opts);
+		$this->set('testJs', $factory->runner());
 	}
 }

@@ -21,8 +21,12 @@ class TestJsFactory {
 
 	private function getFrameworkClassName() {
 		$framework = 'TestJs' . ucfirst($this->framework);
-		App::uses($framework, 'TestJs.Lib/TestJs');
-		App::uses($framework, 'Lib/TestJs');
+		if (!class_exists($framework)) {
+			App::uses($framework, 'Lib/TestJs');
+		}
+		if (!class_exists($framework)) {
+			App::uses($framework, 'TestJs.Lib/TestJs');
+		}
 		if (!class_exists($framework)) {
 			throw new LogicException("Could not find class {$framework}. Create {$framework}.php in Lib/TestJs/.");
 		}
