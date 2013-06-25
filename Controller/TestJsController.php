@@ -1,7 +1,7 @@
 <?php
 
 App::uses('TestJsAppController', 'TestJs.Controller');
-App::uses('TestJsFactory', 'TestJs.Lib/TestJs');
+App::uses('TestJsBuilder', 'TestJs.Lib/TestJs');
 
 class TestJsController extends TestJsAppController {
 	public $layout = 'TestJs.test_js';
@@ -20,7 +20,7 @@ class TestJsController extends TestJsAppController {
 		if (!is_array($opts)) {
 			$opts = $defaults;
 		}
-		$factory = new TestJsFactory($opts);
-		$this->set('testJs', $factory->runner());
+		$builder = new TestJsBuilder($opts);
+		$this->set('testJs', $builder->runner());
 	}
 }

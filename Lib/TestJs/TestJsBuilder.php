@@ -2,7 +2,7 @@
 
 App::uses('TestJsRunner',  'TestJs.Lib/TestJs');
 
-class TestJsFactory {
+class TestJsBuilder {
 	public $framework;
 	public $options;
 
