@@ -5,9 +5,7 @@ App::uses('TestJsFramework', 'TestJs.Lib/TestJs');
 class TestJsJasmine extends TestJsFramework {
 	public function jsFiles() {
 		return array(
-			'/test_js/js/sinon.js',
 			'/test_js/js/jasmine.js',
-			'/test_js/js/jasmine-sinon.js',
 			'/test_js/js/jasmine-html.js'
 		);
 	}

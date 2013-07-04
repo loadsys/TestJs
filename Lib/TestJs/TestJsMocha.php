@@ -6,8 +6,6 @@ class TestJsMocha extends TestJsFramework {
 	public function jsFiles() {
 		return array(
 			'/test_js/js/chai.js',
-			'/test_js/js/sinon.js',
-			'/test_js/js/sinon-chai.js',
 			'/test_js/js/mocha.js'
 		);
 	}

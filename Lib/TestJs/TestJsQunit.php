@@ -4,11 +4,7 @@ App::uses('TestJsFramework', 'TestJs.Lib/TestJs');
 
 class TestJsQunit extends TestJsFramework {
 	public function jsFiles() {
-		return array(
-			'/test_js/js/sinon.js',
-			'/test_js/js/qunit.js',
-			'/test_js/js/sinon-qunit.js'
-		);
+		return array('/test_js/js/qunit.js');
 	}
 
 	public function cssFiles() {
