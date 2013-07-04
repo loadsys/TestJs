@@ -7,7 +7,7 @@ class TestJsQunit extends TestJsFramework {
 		return array(
 			'/test_js/js/sinon.js',
 			'/test_js/js/qunit.js',
-			'/test_js/js/qunit-sinon.js'
+			'/test_js/js/sinon-qunit.js'
 		);
 	}
 
